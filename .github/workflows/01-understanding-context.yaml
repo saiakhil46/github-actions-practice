@@ -1,6 +1,6 @@
 name: "01 - Understanding Contexts"
 
-on: push
+on: workflow_dispatch
 
 jobs:
   event-info-job:
