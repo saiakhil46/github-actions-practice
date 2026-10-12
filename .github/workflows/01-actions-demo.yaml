@@ -1,6 +1,6 @@
 name: 01 Actions demo
 
-on: push
+on: workflow_dispatch
 
 jobs:
   flask-ci-app-job:
