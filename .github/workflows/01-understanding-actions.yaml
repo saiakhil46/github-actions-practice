@@ -1,0 +1,13 @@
+name: Understanding Actions
+
+on: push
+
+jobs:
+  demo-action-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Print message
+        run: echo "Repository checked out successfully"
