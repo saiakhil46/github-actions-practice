@@ -1,0 +1,22 @@
+name: 01 Actions demo
+
+on: push
+
+jobs:
+  flask-ci-app-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Build docker image
+        run: docker build -t akhil-flask-app:v1.0.0
+      
+      - name: Run containers
+        run: |
+          docker run -d -p 5000:5000 --name akhil-flask-container akhil-flask-app:v1.0.0
+
+      - name: Smoke test
+        run: |
+          sleep 5
+          curl http://localhost:5000/health
