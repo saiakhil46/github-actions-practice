@@ -1,24 +1,26 @@
 name: 01 - Production workflow trigger demo
 
-on:
-  push:
-    branches:
-      - "develop"
-      - "feature/**"
-    paths:
-      - "app/**"
-      - "docker/**"
-      - ".github/workflows/**"
+# on:
+#   push:
+#     branches:
+#       - "develop"
+#       - "feature/**"
+#     paths:
+#       - "app/**"
+#       - "docker/**"
+#       - ".github/workflows/**"
   
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
-      - closed
-      - ready_for_review
-    branches:
-      - "main"
+#   pull_request:
+#     types:
+#       - opened
+#       - synchronize
+#       - reopened
+#       - closed
+#       - ready_for_review
+#     branches:
+#       - "main"
+
+on: workflow_dispatch
 
 jobs:
   validation-job:

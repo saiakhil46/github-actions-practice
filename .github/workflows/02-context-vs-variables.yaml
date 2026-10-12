@@ -1,6 +1,6 @@
 name: 02 - Context vs Variables Demo
 
-on: push
+on: workflow_dispatch
 
 jobs:
   prod-check:
@@ -9,5 +9,5 @@ jobs:
     steps:
       - name: Print workflow Info
         run: |
-          echo "Event Type: $GITHUB_EVENT_TYPE"
+          echo "Event Type: $GITHUB_EVENT_NAME"
           echo "Branch Name: $GITHUB_REF_NAME"
