@@ -10,11 +10,11 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Build docker image
-        run: docker build -t akhil-flask-app:v1.0.0
+        run: docker build -t saiakhil46/akhil-flask-app:v1.0.0
       
       - name: Run containers
         run: |
-          docker run -d -p 5000:5000 --name akhil-flask-container akhil-flask-app:v1.0.0
+          docker run -d -p 5000:5000 --name akhil-flask-container saiakhil46/akhil-flask-app:v1.0.0
 
       - name: Smoke test
         run: |
