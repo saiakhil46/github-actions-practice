@@ -23,10 +23,9 @@ env:
 
 jobs:
 
-  if: ${{ (github.event_name == 'push' && startsWith(github.ref_name, 'feature/')) || (github.event_name == 'pull_request' && github.base_ref == 'main' && !contains(github.event.pull_request.title, 'WIP')) }}
-
   flask-build-test-publish-job:
     runs-on: ubuntu-latest
+    if: ${{ (github.event_name == 'push' && startsWith(github.ref_name, 'feature/')) || (github.event_name == 'pull_request' && github.base_ref == 'main' && !contains(github.event.pull_request.title, 'WIP')) }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v7
@@ -35,7 +34,7 @@ jobs:
         run: echo "IMAGE_TAG=${GITHUB_RUN_NUMBER}-${GITHUB_SHA::7}" >> $GITHUB_ENV
       
       - name: Display build info
-        echo: |
+        run: |
           echo "Application: $APPLICATION_NAME"
           echo "Repository: $GITHUB_REPOSITORY"
           echo "Actor: $GITHUB_ACTOR"
