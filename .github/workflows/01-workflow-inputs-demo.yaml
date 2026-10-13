@@ -61,7 +61,7 @@ jobs:
         if: ${{ inputs.environment != 'dev' }}
         uses: docker/build-push-action@v7
         with:
-          context: .
+          context: ./project-files
           push: true
           tags: ${{ env.DOCKER_USERNAME }}/${{ env.APPLICATION_NAME }}:${{ env.IMAGE_TAG }}
 
