@@ -28,7 +28,7 @@ jobs:
           echo "Cache Hit: ${{ steps.pip-cache.outputs.cache-hit }}"
       
       - name: Install Dependencies
-        if: ${{ steps.pip-cache.outputs.cache-hit != true }}
+        if: ${{ steps.pip-cache.outputs.cache-hit != 'true' }}
         run: |
           pip install -r requirements.txt
 
